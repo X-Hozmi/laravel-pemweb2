@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Latihan;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormBelanjaRequest;
-use Illuminate\Http\Request;
 
 class LatihanController extends Controller
 {

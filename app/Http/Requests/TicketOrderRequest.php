@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormBelanjaRequest extends FormRequest
+class TicketOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,12 @@ class FormBelanjaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'kdbrg' => 'required|string|size:8',
-            'nmbrg' => 'required|string|min:3|max:50',
-            'jml' => 'required|numeric|digits_between:1,3',
-            'hrgbrg' => 'required|numeric|min:3',
-            'jns_bayar' => 'required|string',
-            'satuan' => 'required|string',
-            'alamat' => 'required|string',
+            'passenger' => 'required|string',
+            'age' => 'required|numeric',
+            'tickets' => 'required|numeric|digits_between:1,3',
+            'ticket_category' => 'required|string',
+            'routes' => 'required|string',
+            'departure_date' => 'required|date',
         ];
     }
 }

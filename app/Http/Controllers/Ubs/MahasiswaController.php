@@ -9,10 +9,10 @@ class MahasiswaController extends Controller
     public function listMahasiswa()
     {
         $arrMahasiswa = [
-            "Risa Lestari",
-            "Rudi Hermawan",
-            "Bambang Kusumo",
-            "Ki Mantep"
+            'Risa Lestari',
+            'Rudi Hermawan',
+            'Bambang Kusumo',
+            'Ki Mantep',
         ];
 
         return view('latihan.ListMahasiswa')->with(
