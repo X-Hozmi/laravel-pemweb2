@@ -35,8 +35,8 @@ class StudentController extends Controller
         $result = match (true) {
             $method === 'sql' => DB::insert("INSERT INTO students(npm, name, birth_date, gpa) VALUES('19003036', 'Sari Citra Lestari', '2001-12-31', 3.5)"),
             $method === 'timestamp' => DB::insert("INSERT INTO students(npm, name, birth_date, gpa, created_at, updated_at) VALUES('19002032', 'Rina Kumala Sari', '2000-06-28', 3.4, now(), now())"),
-            $method === 'prepared' => DB::insert("INSERT INTO students(npm, name, birth_date, gpa, created_at, updated_at) VALUES(?,?,?,?,?,?)", ['18012012', 'James Situmorang', '1999-04-02', 2.7, now(), now()]),
-            $method === 'binding' => DB::insert("INSERT INTO students(npm, name, birth_date, gpa, created_at, updated_at) VALUES(:npm,:nama,:tgl,:ipk,:created,:updated)", [
+            $method === 'prepared' => DB::insert('INSERT INTO students(npm, name, birth_date, gpa, created_at, updated_at) VALUES(?,?,?,?,?,?)', ['18012012', 'James Situmorang', '1999-04-02', 2.7, now(), now()]),
+            $method === 'binding' => DB::insert('INSERT INTO students(npm, name, birth_date, gpa, created_at, updated_at) VALUES(:npm,:nama,:tgl,:ipk,:created,:updated)', [
                 'npm' => '19005011',
                 'nama' => 'Riana Putria',
                 'tgl' => '2000-11-23',

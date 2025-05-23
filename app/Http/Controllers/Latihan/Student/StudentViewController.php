@@ -10,11 +10,11 @@ class StudentViewController extends Controller
     public function selectTampil()
     {
         $result = DB::select('SELECT * FROM students');
-        echo ($result[0]->id) . '<br>';
-        echo ($result[0]->npm) . '<br>';
-        echo ($result[0]->name) . '<br>';
-        echo ($result[0]->birth_date) . '<br>';
-        echo ($result[0]->gpa);
+        echo $result[0]->id.'<br>';
+        echo $result[0]->npm.'<br>';
+        echo $result[0]->name.'<br>';
+        echo $result[0]->birth_date.'<br>';
+        echo $result[0]->gpa;
     }
 
     public function selectView()

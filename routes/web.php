@@ -17,8 +17,11 @@ Route::get('/', function () {
 });
 
 Route::get('/tampil', [MahasiswaController::class, 'listMahasiswa']);
-Route::get('/belanja', [LatihanController::class, 'index']);
-Route::post('/proses-frmBelanja', [LatihanController::class, 'prosesFormBelanja']);
+
+Route::controller(LatihanController::class)->group(function () {
+    Route::get('/belanja', 'index');
+    Route::post('/proses-frmBelanja', 'prosesFormBelanja');
+});
 
 Route::group([
     'prefix' => 'tiket',
@@ -57,12 +60,16 @@ Route::group([
 });
 
 Route::prefix('students')->group(function () {
-    Route::get('/tampil', [StudentViewController::class, 'selectTampil']);
-    Route::get('/view', [StudentViewController::class, 'selectView']);
-    Route::get('/where', [StudentViewController::class, 'selectWhere']);
+    Route::controller(StudentViewController::class)->group(function () {
+        Route::get('/tampil', 'selectTampil');
+        Route::get('/view', 'selectView');
+        Route::get('/where', 'selectWhere');
+    });
 
-    Route::get('/select', [StudentController::class, 'index']);
-    Route::get('/insert/{method}', [StudentController::class, 'store']);
-    Route::get('/update', [StudentController::class, 'update']);
-    Route::get('/delete', [StudentController::class, 'destroy']);
+    Route::controller(StudentController::class)->group(function () {
+        Route::get('/select', 'index');
+        Route::get('/insert/{method}', 'store');
+        Route::get('/update', 'update');
+        Route::get('/delete', 'destroy');
+    });
 });
