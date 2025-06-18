@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('birth_place')->nullable();
             $table->date('birth_date');
+            $table->string('gender', 2)->nullable();
+            $table->text('address')->nullable();
             $table->string('faculty')->nullable();
             $table->string('major')->nullable();
             $table->decimal('gpa', 3, 2)->default(1.00);

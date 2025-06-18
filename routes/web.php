@@ -5,6 +5,7 @@ use App\Http\Controllers\Abdillah068\MahasiswaRegisterProcessViewController;
 use App\Http\Controllers\Abdillah068\MahasiswaRegisterViewController;
 use App\Http\Controllers\Latihan\LatihanController;
 use App\Http\Controllers\Latihan\Student\StudentController;
+use App\Http\Controllers\Latihan\Student\StudentNewController;
 use App\Http\Controllers\Latihan\Student\StudentViewController;
 use App\Http\Controllers\Ticketing\Order\PlaneTicketOrderController;
 use App\Http\Controllers\Ticketing\Order\TrainTicketOrderController;
@@ -73,3 +74,15 @@ Route::prefix('students')->group(function () {
         Route::get('/delete', 'destroy');
     });
 });
+
+Route::resource('mahasiswas', StudentNewController::class);
+
+// Route::controller(MahasiswaNewController::class)->group(function () {
+//     Route::get('/mahasiswas', 'index')->name('mahasiswas.index');
+//     Route::get('/mahasiswas/create', 'create')->name('mahasiswas.create');
+//     Route::post('/mahasiswas', 'store')->name('mahasiswas.store');
+//     Route::get('/mahasiswas/{mahasiswa}', 'show')->name('mahasiswas.show');
+//     Route::get('/mahasiswas/{mahasiswa}/edit', 'edit')->name('mahasiswas.edit');
+//     Route::put('/mahasiswas/{mahasiswa}', 'update')->name('mahasiswas.update');
+//     Route::delete('/mahasiswa/{mahasiswa}', 'destroy')->name('mahasiswas.destroy');
+// });
