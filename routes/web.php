@@ -7,6 +7,7 @@ use App\Http\Controllers\Latihan\LatihanController;
 use App\Http\Controllers\Latihan\Student\StudentController;
 use App\Http\Controllers\Latihan\Student\StudentNewController;
 use App\Http\Controllers\Latihan\Student\StudentViewController;
+use App\Http\Controllers\Latihan\Subject\SubjectController;
 use App\Http\Controllers\Ticketing\Order\PlaneTicketOrderController;
 use App\Http\Controllers\Ticketing\Order\TrainTicketOrderController;
 use App\Http\Controllers\Ticketing\TicketingController;
@@ -76,6 +77,8 @@ Route::prefix('students')->group(function () {
 });
 
 Route::resource('mahasiswas', StudentNewController::class);
+
+Route::resource('subjects', SubjectController::class);
 
 // Route::controller(MahasiswaNewController::class)->group(function () {
 //     Route::get('/mahasiswas', 'index')->name('mahasiswas.index');

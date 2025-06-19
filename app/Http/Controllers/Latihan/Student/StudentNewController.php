@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Latihan\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Latihan\Student\StudentNewRequest;
 use App\Models\Student;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class StudentNewController extends Controller
 {
@@ -30,15 +30,10 @@ class StudentNewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StudentNewRequest $request)
     {
-        $validateData = $request->validate([
-            'npm' => 'required|size:8|unique:students',
-            'name' => 'required|min:3|max:50',
-            'gender' => 'required|in:P,L',
-            'major' => 'required',
-            'address' => '',
-        ]);
+        $validateData = $request->validated();
+
         $validateData['birth_date'] = Carbon::now();
         Student::create($validateData);
         $request->session()->flash('pesan', "Penambahan data{$validateData['name']} berhasil");
@@ -69,15 +64,10 @@ class StudentNewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StudentNewRequest $request, string $id)
     {
-        $validateData = $request->validate([
-            'npm' => 'required|size:8|unique:students',
-            'name' => 'required|min:3|max:50',
-            'gender' => 'required|in:P,L',
-            'major' => 'required',
-            'address' => '',
-        ]);
+        $validateData = $request->validated();
+
         // $validateData['birth_date'] = Carbon::now();
         $mahasiswa = Student::findOrFail($id);
         Student::where('id', $mahasiswa->id)->update($validateData);
